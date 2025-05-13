@@ -8,6 +8,8 @@ dotenv.config();
 
 const app = express();
 
+const PORT = process.env.PORT;
+
 app.use(express.json()); //middleware. allows us to accept JSON data in the req.body
 
 app.use("/api/calls", callRoutes);
@@ -16,7 +18,7 @@ app.use("/api/calls", callRoutes);
 //   res.send("server is ready");
 // });
 
-app.listen(5001, () => {
+app.listen(PORT, () => {
   connectDB();
-  console.log("server started @ http://localhost:5001");
+  console.log(`server started @ http://localhost:${PORT}`);
 });
